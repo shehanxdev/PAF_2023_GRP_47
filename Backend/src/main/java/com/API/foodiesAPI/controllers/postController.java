@@ -12,25 +12,21 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping()
+@RequestMapping("/api/post")
 public class postController {
 
     @Autowired
     private PostService postservice;
-    @CrossOrigin(origins = "http://localhost:8000")
-    @GetMapping("/health")
-    public String healthCheck(){
-        return "Health Check Complete";
-    }
+
 
     @CrossOrigin(origins = "http://localhost:8000")
-    @PostMapping
-    public ResponseEntity<?> createStudentInquiry(@RequestBody Post post) {
+    @PostMapping("/")
+    public ResponseEntity<?> createPost(@RequestBody Post post) {
         postservice.createPost(post);
         return ResponseEntity.ok("Post Added");
     }
     @CrossOrigin(origins = "http://localhost:8000")
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<List<Map<String, Object>>> getAllPosts() {
         List<Post> posts = postservice.getAllPosts();
         List<Map<String, Object>> response = posts.stream().map(post -> {
@@ -47,34 +43,34 @@ public class postController {
         return ResponseEntity.ok(response);
     }
 
-    @CrossOrigin(origins = "http://localhost:8000")
-    @GetMapping("/{id}")
-    public ResponseEntity<Post> getStudentInquiryById(@PathVariable String id) {
-        Post post = postservice.getPostById(id);
-        if (post != null) {
-            return ResponseEntity.ok(post);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-    @CrossOrigin(origins = "http://localhost:8000")
-    @PutMapping("/{id}")
-    public ResponseEntity<?> updatePost(@PathVariable String id, @RequestBody Post post) {
+    // @CrossOrigin(origins = "http://localhost:8000")
+    // @GetMapping("/{id}")
+    // public ResponseEntity<Post> getStudentInquiryById(@PathVariable String id) {
+    //     Post post = postservice.getPostById(id);
+    //     if (post != null) {
+    //         return ResponseEntity.ok(post);
+    //     } else {
+    //         return ResponseEntity.notFound().build();
+    //     }
+    // }
+//     @CrossOrigin(origins = "http://localhost:8000")
+//     @PutMapping("/{id}")
+//     public ResponseEntity<?> updatePost(@PathVariable String id, @RequestBody Post post) {
 
-   post.setId(id);
-   postservice.updatePost(post);
-        return ResponseEntity.ok().build();
-    }
-    @CrossOrigin(origins = "http://localhost:8000")
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteStudentInquiry(@PathVariable(value = "id") String Id) {
-        try {
-            postservice.deletePost(Id);
-            return ResponseEntity.ok().build();
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
-    }
+//    post.setId(id);
+//    postservice.updatePost(post);
+//         return ResponseEntity.ok().build();
+//     }
+//     @CrossOrigin(origins = "http://localhost:8000")
+//     @DeleteMapping("/{id}")
+//     public ResponseEntity<Void> deleteStudentInquiry(@PathVariable(value = "id") String Id) {
+//         try {
+//             postservice.deletePost(Id);
+//             return ResponseEntity.ok().build();
+//         } catch (Exception e) {
+//             return ResponseEntity.notFound().build();
+//         }
+//     }
  
     
 }
