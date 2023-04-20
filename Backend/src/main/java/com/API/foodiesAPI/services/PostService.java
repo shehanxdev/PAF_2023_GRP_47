@@ -1,6 +1,6 @@
-package com.API.foodiesAPI.service;
+package com.API.foodiesAPI.services;
 import com.API.foodiesAPI.models.Post;
-import com.API.foodiesAPI.repository.PostRepository;
+import com.API.foodiesAPI.repositories.PostRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

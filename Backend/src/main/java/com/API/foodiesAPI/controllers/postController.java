@@ -1,7 +1,7 @@
 package com.API.foodiesAPI.controllers;
 
 import com.API.foodiesAPI.models.Post;
-import com.API.foodiesAPI.service.PostService;
+import com.API.foodiesAPI.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

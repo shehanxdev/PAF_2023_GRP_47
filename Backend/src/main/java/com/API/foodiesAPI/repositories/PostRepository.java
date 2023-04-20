@@ -1,4 +1,4 @@
-package com.API.foodiesAPI.repository;
+package com.API.foodiesAPI.repositories;
 
 import com.API.foodiesAPI.models.Post;
 
