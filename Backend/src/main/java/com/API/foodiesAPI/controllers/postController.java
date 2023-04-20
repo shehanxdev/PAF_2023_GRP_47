@@ -53,6 +53,17 @@ public class postController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PutMapping("/{id}/like/{likeCount}")
+    public ResponseEntity<Post> updatePostLikes(@PathVariable String id, @PathVariable int likeCount) {
+        Post post = postservice.updatePostLikes(id, likeCount);
+        if (post == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(post);
+    }
+
+    //TODO refactor how data is passed(above practice is recommended)
     @CrossOrigin(origins = "http://localhost:8000")
     @PutMapping("/{id}")
     public ResponseEntity<?> updatePost(@PathVariable String id, @RequestBody Post post) {
