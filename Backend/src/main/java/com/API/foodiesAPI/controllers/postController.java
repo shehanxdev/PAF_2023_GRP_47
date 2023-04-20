@@ -43,34 +43,34 @@ public class postController {
         return ResponseEntity.ok(response);
     }
 
-    // @CrossOrigin(origins = "http://localhost:8000")
-    // @GetMapping("/{id}")
-    // public ResponseEntity<Post> getStudentInquiryById(@PathVariable String id) {
-    //     Post post = postservice.getPostById(id);
-    //     if (post != null) {
-    //         return ResponseEntity.ok(post);
-    //     } else {
-    //         return ResponseEntity.notFound().build();
-    //     }
-    // }
-//     @CrossOrigin(origins = "http://localhost:8000")
-//     @PutMapping("/{id}")
-//     public ResponseEntity<?> updatePost(@PathVariable String id, @RequestBody Post post) {
+    @CrossOrigin(origins = "http://localhost:8000")
+    @GetMapping("/{id}")
+    public ResponseEntity<Post> getPostById(@PathVariable String id) {
+        Post post = postservice.getPostById(id);
+        if (post != null) {
+            return ResponseEntity.ok(post);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @CrossOrigin(origins = "http://localhost:8000")
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updatePost(@PathVariable String id, @RequestBody Post post) {
 
-//    post.setId(id);
-//    postservice.updatePost(post);
-//         return ResponseEntity.ok().build();
-//     }
-//     @CrossOrigin(origins = "http://localhost:8000")
-//     @DeleteMapping("/{id}")
-//     public ResponseEntity<Void> deleteStudentInquiry(@PathVariable(value = "id") String Id) {
-//         try {
-//             postservice.deletePost(Id);
-//             return ResponseEntity.ok().build();
-//         } catch (Exception e) {
-//             return ResponseEntity.notFound().build();
-//         }
-//     }
+   post.setId(id);
+   postservice.updatePost(post);
+        return ResponseEntity.ok().build();
+    }
+    @CrossOrigin(origins = "http://localhost:8000")
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletePost(@PathVariable(value = "id") String Id) {
+        try {
+            postservice.deletePost(Id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
  
     
 }
