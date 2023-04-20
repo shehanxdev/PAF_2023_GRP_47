@@ -25,8 +25,19 @@ public class PostService {
         return postrepository.save(post);
     }
 
+    public Post updatePostLikes(String Id,int likes){
+        Post existingPost=postrepository.findById(Id).orElse(null);
+        if(existingPost!=null){
+            existingPost.setLikes(likes);
+            return postrepository.save(existingPost);
+        }
+        else{
+            return null;
+        }
+    }
+
     public Post updatePost( Post post) {
-        Post existingPost = postrepository.findById(post.getId().toString()).orElse(null);
+        Post existingPost = postrepository.findById(post.getId()).orElse(null);
         
         if (existingPost != null) {
             existingPost.setImages(post.getImages());
