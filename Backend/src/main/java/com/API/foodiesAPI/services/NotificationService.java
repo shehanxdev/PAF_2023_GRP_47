@@ -3,6 +3,7 @@ package com.API.foodiesAPI.services;
 import com.API.foodiesAPI.models.Notification;
 import com.API.foodiesAPI.repositories.NotificationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,4 +21,11 @@ public class NotificationService {
     public Notification addNotification(Notification notification) {
         return notificationRepository.save(notification);
     }
+
+
+    public ResponseEntity<?>deleteNotification(String Id){
+        notificationRepository.deleteById(Id);
+        return ResponseEntity.ok("Notification deleted");
+    }
+
 }
