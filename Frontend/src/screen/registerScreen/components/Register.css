@@ -1,0 +1,25 @@
+
+  /* Set the width and height of the image */
+  img {
+margin-right: 00px;
+margin-left: 0px;
+    width: 750px;
+    height: 1000px;
+  }
+
+  .rg{
+margin: 150px;
+  }
+
+  .subbtn{
+    margin-top: 60px;
+  }
+
+  .tex{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-large;
+    font-weight: 600;
+    margin-top: 70px;
+    margin-bottom: -70px;
+    margin-left: 300px;
+  }
