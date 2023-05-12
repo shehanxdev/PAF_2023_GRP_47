@@ -1,7 +1,12 @@
 import React from "react";
+import NotificationCard from "./components/NotificationCardComponent/NotificationCard";
 
 function NotificationScreen() {
-  return <div>NotificationScreen</div>;
+  return (
+    <div className="mx-4">
+      <NotificationCard />
+    </div>
+  );
 }
 
 export default NotificationScreen;
