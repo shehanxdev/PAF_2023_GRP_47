@@ -2,25 +2,11 @@ import { Button, Card, CardContent, Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import React from "react";
 
-function NotificationCard() {
-  const notification = {
-    title: "Title",
-    content: "Content",
-  };
+function NotificationCard({ data }) {
   return (
     <Card elevation={4}>
       <CardContent>
-        <Typography variant="h6">{notification.title}</Typography>
-        <Typography variant="body2">{notification.content}</Typography>
-
-        <Button
-          className="text-danger"
-          variant="text"
-          startIcon={<DeleteIcon color="error" />}
-          onClick={() => {}}
-        >
-          Delete
-        </Button>
+        <Typography variant="body2">{data.content}</Typography>
       </CardContent>
     </Card>
   );

@@ -75,6 +75,10 @@ const Drawer = styled(MuiDrawer, {
 export default function SideNavBar() {
   const [open, setOpen] = React.useState(true);
   const navigate = useNavigate();
+  const handleNotificationIconClick = () => {
+    console.log("hi");
+    navigate("./notification");
+  };
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -151,7 +155,11 @@ export default function SideNavBar() {
                   ) : text == "Messages" ? (
                     <SendIcon />
                   ) : text == "Notification" ? (
-                    <NotificationsIcon onClick={navigate("/notification")} />
+                    <NotificationsIcon
+                      onClick={() => {
+                        handleNotificationIconClick();
+                      }}
+                    />
                   ) : (
                     <AddIcon />
                   )}
@@ -165,3 +173,16 @@ export default function SideNavBar() {
     </Box>
   );
 }
+// import React from "react";
+// import NotificationsIcon from "@mui/icons-material/Notifications";
+// import { useNavigate } from "react-router-dom";
+// function SideNavbar() {
+//   const handleC = () => {
+//     console.log("hi");
+//     navigate("./notification");
+//   };
+//   const navigate = useNavigate();
+//   return <NotificationsIcon onClick={handleC} />;
+// }
+
+// export default SideNavbar;
