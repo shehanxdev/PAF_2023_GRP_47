@@ -14,6 +14,7 @@ function NotificationCard() {
         <Typography variant="body2">{notification.content}</Typography>
 
         <Button
+          className="text-danger"
           variant="text"
           startIcon={<DeleteIcon color="error" />}
           onClick={() => {}}

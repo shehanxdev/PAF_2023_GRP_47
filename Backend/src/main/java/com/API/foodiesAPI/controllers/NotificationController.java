@@ -26,9 +26,9 @@ public class NotificationController {
     }
 
     @DeleteMapping("/{Id}")
-    public ResponseEntity<?> deleteNotification(@PathVariable String Id) {
+    public ResponseEntity<?> deleteNotification(@PathVariable String receiverId) {
         try {
-            notificationService.deleteNotification(Id);
+            notificationService.deleteNotification(receiverId);
             return ResponseEntity.ok().build();
         } catch (Exception exception) {
             System.out.println("Database operation failed "+exception);

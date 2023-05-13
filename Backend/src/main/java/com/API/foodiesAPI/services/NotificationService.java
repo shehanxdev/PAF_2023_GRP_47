@@ -23,9 +23,10 @@ public class NotificationService {
     }
 
 
-    public ResponseEntity<?>deleteNotification(String Id){
-        notificationRepository.deleteById(Id);
-        return ResponseEntity.ok("Notification deleted");
+    public ResponseEntity<?>deleteNotification(String receiverId){
+            notificationRepository.deleteByReceiverId(receiverId);
+            return ResponseEntity.ok("Notification deleted");
+
     }
 
 }
