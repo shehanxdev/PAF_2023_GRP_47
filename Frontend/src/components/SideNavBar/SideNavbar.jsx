@@ -2,7 +2,7 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
 //MUI PACKAGES
-import { styled, useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -72,12 +72,14 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function SideNavBar() {
+export default function SideNavBar({ setCreateModalOpen }) {
   const [open, setOpen] = React.useState(true);
   const navigate = useNavigate();
   const handleNotificationIconClick = () => {
-    console.log("hi");
     navigate("./notification");
+  };
+  const handleHomeIconClick = () => {
+    navigate("../feed");
   };
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -114,7 +116,7 @@ export default function SideNavBar() {
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
 
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent" open={true}>
         <DrawerHeader>{open ? CloseButton() : MenuButton()}</DrawerHeader>
         <Divider />
 
@@ -145,23 +147,29 @@ export default function SideNavBar() {
                   }}
                 >
                   {text == "Home" ? (
-                    <HomeIcon />
+                    <HomeIcon
+                      sx={{ color: "black" }}
+                      onClick={() => {
+                        handleHomeIconClick();
+                      }}
+                    />
                   ) : text == "Search" ? (
-                    <SearchIcon />
+                    <SearchIcon sx={{ color: "black" }} />
                   ) : text == "Explore" ? (
-                    <ExploreIcon />
+                    <ExploreIcon sx={{ color: "black" }} />
                   ) : text == "Reels" ? (
-                    <MovieIcon />
+                    <MovieIcon sx={{ color: "black" }} />
                   ) : text == "Messages" ? (
-                    <SendIcon />
+                    <SendIcon sx={{ color: "black" }} />
                   ) : text == "Notification" ? (
                     <NotificationsIcon
+                      sx={{ color: "black" }}
                       onClick={() => {
                         handleNotificationIconClick();
                       }}
                     />
                   ) : (
-                    <AddIcon />
+                    <AddIcon sx={{ color: "blue", fontSize: 30 }} />
                   )}
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
@@ -173,16 +181,3 @@ export default function SideNavBar() {
     </Box>
   );
 }
-// import React from "react";
-// import NotificationsIcon from "@mui/icons-material/Notifications";
-// import { useNavigate } from "react-router-dom";
-// function SideNavbar() {
-//   const handleC = () => {
-//     console.log("hi");
-//     navigate("./notification");
-//   };
-//   const navigate = useNavigate();
-//   return <NotificationsIcon onClick={handleC} />;
-// }
-
-// export default SideNavbar;
