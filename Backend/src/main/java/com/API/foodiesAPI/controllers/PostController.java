@@ -1,12 +1,16 @@
 package com.API.foodiesAPI.controllers;
 
+import com.API.foodiesAPI.models.Notification;
 import com.API.foodiesAPI.models.Post;
+import com.API.foodiesAPI.services.NotificationService;
 import com.API.foodiesAPI.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +22,8 @@ public class PostController {
 
     @Autowired
     private PostService postservice;
+    @Autowired
+    private NotificationService notificationService;
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/")
     public ResponseEntity<Post> createPost(@RequestBody Post post) {
@@ -83,7 +89,15 @@ public class PostController {
             if (post == null) {
                 return ResponseEntity.notFound().build();
             }
-            return ResponseEntity.ok(post);
+            else{
+                Notification notification=new Notification();
+                notification.setContent("Someone has liked your post");
+                notification.setCreatedAt(new Date());
+                notification.setReceiverId(post.getAuthorId());
+                notificationService.addNotification(notification);
+                return ResponseEntity.ok(post);
+            }
+
         } catch (Exception exception) {
             System.out.println("Database operation failed "+exception);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
