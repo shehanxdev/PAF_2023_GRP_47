@@ -18,7 +18,7 @@ public class PostController {
 
     @Autowired
     private PostService postservice;
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/")
     public ResponseEntity<Post> createPost(@RequestBody Post post) {
      try{
@@ -32,7 +32,7 @@ public class PostController {
                  .body(null);
      }
     }
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/")
     public ResponseEntity<List<Map<String,Object>>> getAllPosts() {
      try{
@@ -57,7 +57,7 @@ public class PostController {
     }
     }
 
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/{id}")
     public ResponseEntity<Post> getPostById(@PathVariable String id) {
         try{
@@ -75,7 +75,7 @@ public class PostController {
                     .body(null);
         }
     }
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping("/{id}/like/{likeCount}")
     public ResponseEntity<Post> updatePostLikes(@PathVariable String id, @PathVariable int likeCount) {
         try {
@@ -91,7 +91,7 @@ public class PostController {
     }
 
 
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping("/{id}")
     public ResponseEntity<?> updatePost(@PathVariable String id, @RequestBody Post post) {
         try {
