@@ -14,20 +14,17 @@ public class NotificationController {
 
     @Autowired
     private NotificationService notificationService;
-    @GetMapping("/")
-    public ResponseEntity<?> getHealth() {
-        return ResponseEntity.ok().build();
-    }
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/{receiverId}")
     public List<Notification> getNotificationsByReceiverId(@PathVariable String receiverId) {
         return notificationService.getNotificationsByReceiverId(receiverId);
     }
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/")
     public Notification addNotification(@RequestBody Notification notification) {
         return notificationService.addNotification(notification);
     }
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping("/{receiverId}")
     public ResponseEntity<?> deleteNotification(@PathVariable String receiverId) {
         System.out.println("Inside delte contro");
