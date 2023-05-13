@@ -1,8 +1,8 @@
 import React from "react";
-import SideNavBar from "./components/SideNavBar/SideNavbar";
+import PostComponent from "./components/PostComponent/PostComponent";
 
 function FeedScreen() {
-  return <SideNavBar />;
+  return <PostComponent />;
 }
 
 export default FeedScreen;
