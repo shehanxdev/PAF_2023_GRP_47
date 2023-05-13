@@ -9,7 +9,7 @@ public class Comment {
     private Date timeStamp;
 
     public Comment( String authorId, String comment, Date timeStamp) {
-        this.authorId = authorId;
+        this.authorId = "authorId";
         this.comment = comment;
         this.timeStamp = timeStamp;
     }
