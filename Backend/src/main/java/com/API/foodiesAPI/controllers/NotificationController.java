@@ -14,7 +14,10 @@ public class NotificationController {
 
     @Autowired
     private NotificationService notificationService;
-
+    @GetMapping("/")
+    public ResponseEntity<?> getHealth() {
+        return ResponseEntity.ok().build();
+    }
     @GetMapping("/{receiverId}")
     public List<Notification> getNotificationsByReceiverId(@PathVariable String receiverId) {
         return notificationService.getNotificationsByReceiverId(receiverId);
@@ -25,10 +28,11 @@ public class NotificationController {
         return notificationService.addNotification(notification);
     }
 
-    @DeleteMapping("/{Id}")
-    public ResponseEntity<?> deleteNotification(@PathVariable String Id) {
+    @DeleteMapping("/{receiverId}")
+    public ResponseEntity<?> deleteNotification(@PathVariable String receiverId) {
+        System.out.println("Inside delte contro");
         try {
-            notificationService.deleteNotification(Id);
+            notificationService.deleteNotification(receiverId);
             return ResponseEntity.ok().build();
         } catch (Exception exception) {
             System.out.println("Database operation failed "+exception);
