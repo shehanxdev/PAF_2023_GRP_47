@@ -1,9 +1,11 @@
 import React from "react";
 import FoldableParagraph from "../FoldableParagraph/FoldableParagraph";
 import { Avatar } from "@mui/material";
+import "./CreatePost.css";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import formatDate from "../../../../util/formatDate";
-function PostComponent() {
+
+function PostComponent({data}) {
   const post = {
     userPicturePath: "https://pixabay.com/images/id-1911637/",
     userName: "John Doe",

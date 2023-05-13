@@ -1,0 +1,41 @@
+
+  .custom-profile-card {
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  }
+  
+  .custom-post-card span {
+    width: -webkit-fit-content !important;
+    width: -moz-fit-content !important;
+    width: fit-content !important;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .custom-post-card hr,
+  .custom-post-card p,
+  .custom-post-card img,
+  .custom-post-card div {
+    width: 470px !important;
+  }
+  
+  .paragraph-folded {
+    text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .custom-post-card .custom-avatar {
+    width: 50px !important;
+    height: 50px;
+  }
+  
+
+  
+
+  
+  
