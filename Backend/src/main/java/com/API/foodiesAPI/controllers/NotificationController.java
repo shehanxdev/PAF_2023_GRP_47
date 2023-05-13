@@ -14,7 +14,10 @@ public class NotificationController {
 
     @Autowired
     private NotificationService notificationService;
-
+    @GetMapping("/")
+    public ResponseEntity<?> getHealth() {
+        return ResponseEntity.ok().build();
+    }
     @GetMapping("/{receiverId}")
     public List<Notification> getNotificationsByReceiverId(@PathVariable String receiverId) {
         return notificationService.getNotificationsByReceiverId(receiverId);
@@ -25,8 +28,9 @@ public class NotificationController {
         return notificationService.addNotification(notification);
     }
 
-    @DeleteMapping("/{Id}")
+    @DeleteMapping("/{receiverId}")
     public ResponseEntity<?> deleteNotification(@PathVariable String receiverId) {
+        System.out.println("Inside delte contro");
         try {
             notificationService.deleteNotification(receiverId);
             return ResponseEntity.ok().build();
