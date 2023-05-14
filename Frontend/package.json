@@ -28,6 +28,7 @@
     "react-router-dom": "^6.11.0",
     "react-scripts": "5.0.1",
     "reactstrap": "^8.10.0",
+    "redux": "^4.2.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
