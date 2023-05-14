@@ -12,16 +12,10 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import cloudinary from "cloudinary";
 
 const CreatePostModal = ({ open, onClose, onSubmit }) => {
   const [images, setImages] = useState([]);
   const [description, setDescription] = useState("");
-  cloudinary.config({
-    cloud_name: "shehancloudinarystore",
-    api_key: "764387618299358",
-    api_secret: "yhNZsTIQ6K9C_e4QdSN77G9vWHE",
-  });
 
   const handleImageChange = (e) => {
     const newImages = [...images];

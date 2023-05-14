@@ -11,7 +11,6 @@ import CommentCard from "../CommentCard/CommentCard";
 import CommentInputField from "../CommentInputField/CommentInputField";
 
 function PostComponent({ data }) {
-  console.log(data);
   const [post, setPost] = useState(data);
   const onPostSubmit = () => {};
   const handleLikeClick = () => {
